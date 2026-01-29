@@ -1,0 +1,190 @@
+<header>
+  <div class="header__logo">
+    <img src="{{ 'logo.png' | asset_url}}" alt="logo" width="200rem" height="200rem">
+  </div>
+
+  <nav>
+    <ul class="header__nav-list">
+      {% for  link in linklists.header-menu.links %}
+        <li class="header__nav-item">
+          <a href="{{ link.url }}" class="item-link {% if link.url == request.path %}active{% endif %}">
+            {{ link.title }}
+          </a>
+
+          {% if link.links != blank %}
+            <ul class="item-submenu">
+              {% for sublink in link.links %}
+                <li>
+                  <a href="{{ sublink.url }}" class="item-link-submenu {% if sublink.url == request.path %}active{% endif %}">
+                    {{ sublink.title }}
+                  </a>
+                </li>
+              {% endfor %}
+              </ul>
+          {% endif %}
+        
+        </li>
+
+      {% endfor %}
+    </ul>
+
+  </nav>
+
+  <div class="header__icons">
+    <a href="{{ routes.cart_url }}" class="cart-link {% if request.page_type == 'cart'%}active{% endif %}">
+      
+      {% if cart.item_count > 0 %}
+        <sup>{{ cart.item_count }}</sup>
+      {% endif %}
+
+      {% render 'icon-cart'  %}
+    </a>
+
+    <span class="container-burger-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 burger-menu">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </span>
+  </div>
+</header>
+
+{% stylesheet %}
+  header {
+    height: clamp(2rem, 20vh, 10rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2% 5%;
+    background: burlywood;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    font-size: 16px;
+    
+  }
+  .header__logo{
+    width: clamp(10%, 5rem, 10%);
+    height: clamp(50%, 20rem, 10%);;
+  }
+  .header__logo img{
+    width: 100%;
+    height: 80%;
+  }
+  nav{
+    width: 50%;
+    height: 50%;
+    display: flex;
+  }
+  .header__nav-list{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    width: 100%;
+  }
+  a{
+    font-size: 1.3rem; 
+    color: #222222;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke: 0.3px black;
+    display: inline-block;
+    transform: scale(1.2);
+  }
+
+  li a:hover,
+  li a.active,
+  .cart-link.active,
+  .cart-link:hover{
+        color: #088178;
+  }
+
+  li a.active::after,
+  li a:hover::after,
+  .cart-link.active::after,
+  .cart-link:hover::after{
+    content: '';
+    width: 60%;
+    height: 2px;
+    background-color: #088178;
+    bottom: -4px;
+    left: 20%;
+    position: absolute;
+}
+
+  .item-submenu{
+    display: none;
+  }
+
+.header__icons{
+  width: clamp(8rem, 10%, 10%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-burger-menu{
+  display: none;
+
+}
+.burger-menu{
+  color: #222222;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  header{
+    width: 100%;
+  }
+  .container-burger-menu{
+    display: flex;
+  }
+  nav{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: 100%;
+    right: 0;
+    background: yellow;
+    display: block;
+    box-sizing: border-box;
+    padding: 2rem 0;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.1s ease;
+    background-color: #e3e6f3;
+  }
+
+    nav.show-nav{
+    transform: translateX(0);
+    opacity: 1;
+    } 
+
+  .header__nav-list{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding-left: 5%;
+    gap: 2.5rem;
+  }
+ 
+}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu"
+    }
+  ]
+}
+{% endschema %}
