@@ -12,9 +12,14 @@
     "hero": {
       "type": "hero",
       "settings": {}
+    },
+    "features": {
+      "type": "features",
+      "settings": {}
     }
   },
-  "order": [
-    "hero"
+    "order": [
+    "hero",
+    "features"
   ]
 }
