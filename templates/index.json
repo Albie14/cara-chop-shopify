@@ -16,10 +16,15 @@
     "features": {
       "type": "features",
       "settings": {}
+    },
+    "collection-featured-products":{
+      "type": "collection-featured-products",
+      "settings":{}
     }
   },
     "order": [
     "hero",
-    "features"
+    "features",
+    "collection-featured-products"
   ]
 }
