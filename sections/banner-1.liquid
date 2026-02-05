@@ -1,0 +1,55 @@
+<section class="banner-1">
+        <h6>Repair Services</h6>
+        <h2>Up to <span> 70% off </span>All t-Shirts & Accesories</h2>
+        <button type="button">Explore More</button>
+</section>
+
+
+{% style %}
+.banner-1{
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: url('{{ "banner/b2.jpg" | asset_url }}');
+        width: 100%;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+}
+.banner-1 h6{
+        color: #fff;
+        font-size: 16px;
+
+}
+.banner-1 h2{
+        color: #fff;
+        font-size: 30px;
+        padding: 10px 0;
+}
+.banner-1 h2 span{
+        color: #ef3636;
+}
+.banner-1 button{
+        font-size: 14px;
+        font-weight: 600;
+        padding: 15px 30px;
+        color: #000;
+        background-color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        transition: 0.2s;
+
+}
+
+.banner-1 button:hover{
+        background-color: #088178;
+        color: #fff;
+}
+
+
+
+{% endstyle %}

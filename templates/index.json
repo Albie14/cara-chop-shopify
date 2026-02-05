@@ -20,11 +20,16 @@
     "collection-featured-products":{
       "type": "collection-featured-products",
       "settings":{}
+    },
+      "banner-1": {
+      "type": "banner-1",
+      "settings": {}
     }
   },
     "order": [
     "hero",
     "features",
-    "collection-featured-products"
+    "collection-featured-products",
+    "banner-1"
   ]
 }
