@@ -1,0 +1,99 @@
+<section class="newsletter">
+    <div class="txt-newsletter">
+        <h3>Sing Up For Newsletter</h3>
+        <h4>Get e-mail updates our latest shop and <span>special offers.</span></h4>
+    </div>
+    <div class="email-newsletter">
+        {% form 'customer' %}
+            <div class="box-email">
+                    <input type="email" name="contact[email]" placeholder="your email addres" required>
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+            </div>
+            <div class="box-btn">
+                <button type="submit">Sign Up</button>
+            </div>
+        {% endform %}
+
+    </div>
+</section>
+
+{% style %}
+    .newsletter{
+        margin-top: 48px;
+        height: 30vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        align-items: center;
+        background-image: url('{{ "banner/b14.png" | asset_url }}');
+        background-repeat: no-repeat;
+        background-position: 20% 30%;
+        background-color: #041e42;
+
+    }
+    .txt-newsletter{
+        width: 35%;
+        height: 40%;
+    }
+    .txt-newsletter h3{
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+
+    }
+    .txt-newsletter h4{
+        font-size: 14px;
+        font-weight: 600;
+        color: #818ea0;
+
+    }
+    .txt-newsletter h4 span{
+        color: #ffbd27;
+    }
+    .email-newsletter{
+        width: 35%;
+        height: 40%;
+        display: flex;
+    }
+    .email-newsletter form{
+        display: flex;
+        width: 100%;
+    }
+    .email-newsletter .box-email{
+        width: 70%;
+        height: 20px;
+    }
+
+    .email-newsletter .box-btn{
+        width: 30%;
+    }
+    .email-newsletter input{
+    height: 3.125rem;
+    padding: 0 1.15rem;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    }
+    .email-newsletter button{
+    background-color: #088178;
+    height: 3.125rem;
+    width: 100%;
+    color: #fff;
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
+}
+
+{% endstyle %}

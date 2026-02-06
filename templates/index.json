@@ -32,6 +32,10 @@
       "banner-2": {
       "type": "banner-2",
       "settings": {}
+    },
+      "newsletter": {
+      "type": "newsletter",
+      "settings": {}
     }
   },
     "order": [
@@ -40,6 +44,7 @@
     "collection-featured-products",
     "banner-1",
     "collection-new-arrivals",
-    "banner-2"
+    "banner-2",
+    "newsletter"
   ]
 }
