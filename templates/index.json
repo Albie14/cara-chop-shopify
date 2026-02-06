@@ -28,6 +28,10 @@
     "collection-new-arrivals": {
       "type": "collection-new-arrivals",
       "settings": {}
+    },
+      "banner-2": {
+      "type": "banner-2",
+      "settings": {}
     }
   },
     "order": [
@@ -35,6 +39,7 @@
     "features",
     "collection-featured-products",
     "banner-1",
-    "collection-new-arrivals"
+    "collection-new-arrivals",
+    "banner-2"
   ]
 }
