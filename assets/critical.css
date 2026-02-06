@@ -130,7 +130,7 @@ body {
 }
 
 /* styles elements that render collections */
-    .collection-featured-products{
+    .collection-featured-products, .collection-new-arrivals{
         width: 100%;
         margin-top: 2%;
         text-align: center;

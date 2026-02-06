@@ -24,12 +24,17 @@
       "banner-1": {
       "type": "banner-1",
       "settings": {}
+    },
+    "collection-new-arrivals": {
+      "type": "collection-new-arrivals",
+      "settings": {}
     }
   },
     "order": [
     "hero",
     "features",
     "collection-featured-products",
-    "banner-1"
+    "banner-1",
+    "collection-new-arrivals"
   ]
 }
