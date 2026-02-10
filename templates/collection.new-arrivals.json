@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "collection-new-arrivals": {
+      "type": "collection-new-arrivals",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-new-arrivals",
+  ]
+}

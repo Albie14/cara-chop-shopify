@@ -130,10 +130,15 @@ body {
 }
 
 /* styles elements that render collections */
-    .collection-featured-products, .collection-new-arrivals{
+    .collection-featured-products,
+    .collection-new-arrivals,
+    .collection-men-pants,
+    .collecction-jacket,
+    .collecction-oversizes{
         width: 100%;
         margin-top: 2%;
         text-align: center;
+        scroll-margin-top: 20vh;
     }
     .name-collection{
         display: flex;
@@ -252,3 +257,11 @@ body {
             padding-top: 10%;
         }
     }
+
+  /* .shopify-section .collection-new-arrivals,
+  .shopify-section .collection-featured-products,
+  .shopify-section .collection-men-pants,
+  .shopify-section .collecction-jacket,
+  .shopify-section .collecction-oversizes{
+    margin-top: 20vh;
+  } */

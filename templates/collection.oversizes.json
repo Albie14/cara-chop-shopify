@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "collection-oversizes": {
+        "type": "collection-oversizes",
+        "settings": {}
+        }
+    },
+    "order": [
+        "collection-oversizes",
+    ]
+}

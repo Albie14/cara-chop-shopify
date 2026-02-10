@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "collection-featured-products": {
+      "type": "collection-featured-products",
+      "settings": {}
+    },
+    "collection-new-arrivals": {
+      "type": "collection-new-arrivals",
+      "settings": {}
+    },
+      "collection-men-pants": {
+      "type": "collection-men-pants",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-featured-products",
+    "collection-new-arrivals",
+    "collection-men-pants"
+  ]
+}
