@@ -30,3 +30,12 @@
     </div>
 
 </div>
+<style>
+    #shopify-section-{{ section.id }} {
+        {% if template contains 'index' %}
+        margin-top: 2%; /* value for index, delete this value from critical.css */
+        {% else %}
+        margin-top: 20vh; /* value for other pages */
+        {% endif %}
+    }
+</style>

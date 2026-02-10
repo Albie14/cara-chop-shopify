@@ -133,12 +133,13 @@ body {
     .collection-featured-products,
     .collection-new-arrivals,
     .collection-men-pants,
-    .collecction-jacket,
-    .collecction-oversizes{
+    .collection-jacket,
+    .collection-oversizes{
         width: 100%;
-        margin-top: 2%;
+        /* margin-top: 2%;  */
         text-align: center;
         scroll-margin-top: 20vh;
+
     }
     .name-collection{
         display: flex;

@@ -1,11 +1,11 @@
 {
-  "sections": {
-    "collection-jacket": {
-      "type": "collection-jacket",
-      "settings": {}
-    }
-  },
-  "order": [
-    "collection-jacket",
-  ]
+    "sections": {
+        "collection-jacket": {
+        "type": "collection-jacket",
+        "settings": {}
+        }
+    },
+    "order": [
+        "collection-jacket",
+    ]
 }
