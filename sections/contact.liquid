@@ -1,0 +1,76 @@
+<div class="contact">
+    <h2>Contact us</h2>
+    <div class="content">
+        <div class="contac-1">
+            <div class="form-contact">
+                formulario
+            </div>
+            <div class="schedules">
+                horarios
+            </div>
+        </div>
+        <div class="contac-2">
+            <div class="map">
+                mapa
+            </div>
+            <div class="social-media">
+                RRSS
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+
+{% stylesheet %}
+    .contact{
+        margin-top: 25vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 90%;
+        height: 60vh;
+        margin-top: 32px;
+        outline: 2px solid red;
+        
+    }
+    .contac-1{
+        height: 100%;
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        background-color: gold
+    }
+    .form-contact{
+        height: 50%;
+        outline: 2px solid green;
+    }
+    .schedules{
+        height: 45%;
+        outline: 2px solid green;
+    }
+    .contac-2{
+        height: 100%;
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        background-color: gray;
+    }
+    .map{
+        height: 70%;
+    }
+    .social-media{
+        height: 25%;
+    }
+{% endstylesheet %}
