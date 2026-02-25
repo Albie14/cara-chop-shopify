@@ -1,0 +1,86 @@
+<section class="hero">
+    <aside class="text-hero">
+        <h6>Trade-in-Offer</h6>
+        <h3>Super value deals</h3>
+        <h2>On all products</h2>
+        <p>Save more width cuopons & up to 70% off!</p>
+        <button type="button">Shop Now</button>
+    </aside>
+
+</section >
+
+{% style%}
+
+    .hero{
+        background-image: url('{{ "hero4.png" | asset_url }}');
+        height: 90vh;
+        width: 100%;
+        background-size: cover;
+        background-position: top 25% right 0;
+        padding: 0 80px;
+        margin-top: clamp(2rem, 20vh, 10rem);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: all ease 0.2s;
+    }    
+    .text-hero{
+        width: 40%;
+        height: 60%;
+        margin-left: 5%;
+        display:flex;
+        flex-direction: column;
+    }
+    .text-hero h6{
+        font-size:1.5rem;
+        font-weight: 500;
+        -webkit-text-stroke: 0.8px currentColor;
+        margin-bottom: 1rem;
+    }
+    .text-hero h3{
+        font-size:3rem;
+        font-weight: 550;
+    }
+    .text-hero h2{
+        color:#088178;
+        font-size:3rem;
+        transform: scaleY(1.2);
+        letter-spacing: 1px ;
+        font-weight: 500;
+        -webkit-text-stroke: 3px currentColor;
+        margin-bottom: 2rem;
+    }
+    .text-hero p{
+        font-size: 16px;
+        color: #465b52;
+    }
+
+    .text-hero button{
+    background-image: url('{{ "button.png" | asset_url }}');
+    background-color: transparent;
+    color: #088178;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 3rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    width: 40%;
+    }
+
+@media(max-width: 768px){
+    .hero{
+        background-image: none;
+        background-color: #e3e6f3;
+    }
+    .text-hero{
+        width: 100%;
+        padding: 0;
+    }
+
+}
+{% endstyle %}
