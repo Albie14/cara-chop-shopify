@@ -1,0 +1,56 @@
+<section class="newsletter">
+    <div class="txt-newsletter">
+        <h3>Sing Up For Newsletter</h3>
+        <h4>Get e-mail updates our latest shop and <span>special offers.</span></h4>
+    </div>
+    <div class="email-newsletter">
+        {% form 'customer' %}
+            <div class="box-email">
+                    <input type="email" name="contact[email]" placeholder="your email addres" required>
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+            </div>
+            <div class="box-btn">
+                <button type="submit">Sign Up</button>
+            </div>
+        {% endform %}
+
+    </div>
+</section>
+
+{% style %}
+    .newsletter{
+        margin-top: 48px;
+        height: 30vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        align-items: center;
+        background-image: url('{{ "banner/b14.png" | asset_url }}');
+        background-repeat: no-repeat;
+        background-position: 20% 30%;
+        background-color: #041e42;
+
+    }
+    .txt-newsletter{
+        width: 35%;
+        height: 40%;
+    }
+    .txt-newsletter h3{
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+
+    }
+    .txt-newsletter h4{
+        font-size: 14px;
+        font-weight: 600;
+        color: #818ea0;
+
+    }
+    .txt-newsletter h4 span{
+        color: #ffbd27;
+    }
+    
+{% endstyle %}

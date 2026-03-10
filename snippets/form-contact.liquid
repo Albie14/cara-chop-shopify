@@ -1,0 +1,30 @@
+<div class="contact-us" >
+    <h3>Your mail</h3>
+    {% form 'customer' %}
+        <div class="box-email">
+            <input type="email" name="contact[email]" placeholder="your email addres" required>
+            <input type="hidden" name="contact[tags]" value="newsletter">
+        </div>
+        <div class="box-btn">
+            <button type="submit">Sign Up</button>
+        </div>
+    {% endform %}
+    <p>so you can stay up to date on our promotions and discounts</p>
+
+</div>
+
+{% stylesheet %}
+    .contact-us{
+        box-sizing: border-box;
+        padding: 0 10%;
+
+    }
+    .contact-us h3{
+        margin-bottom: 24px;
+    }
+    .contact-us p{
+        margin-top: 8px;
+        font-size: 12px;
+        color: #088178;
+    }
+{% endstylesheet %}

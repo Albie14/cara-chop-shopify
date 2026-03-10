@@ -1,0 +1,276 @@
+<header>
+  <div class="header__logo">
+    <img src="{{ 'logo.png' | asset_url}}" alt="logo" width="200rem" height="200rem">
+  </div>
+
+  <nav>
+    <ul class="header__nav-list">
+      {% for  link in linklists.header-menu.links %}
+        <li class="header__nav-item">
+          <a href="{{ link.url }}" class="item-link {% if link.url == request.path %}active{% endif %}">
+            {{ link.title }}
+          </a>
+
+          {% if link.links != blank %}
+            <ul class="item-submenu">
+              {% for sublink in link.links %}
+                <li>
+                  <a href="{{ sublink.url }}" class="item-link-submenu {% if sublink.url == request.path %}active{% endif %}">
+                    {{ sublink.title }}
+                  </a>
+                </li>
+              {% endfor %}
+              </ul>
+          {% endif %}
+        
+        </li>
+
+      {% endfor %}
+    </ul>
+
+  </nav>
+
+  <div class="header__icons">
+    <a href="{{ routes.cart_url }}" class="cart-link {% if request.page_type == 'cart'%}active{% endif %}">
+      
+      {% if cart.item_count > 0 %}
+        <sup class="quantity-in-cart">{{ cart.item_count }}</sup>
+      {% endif %}
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 icon-cart" >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </svg>
+    </a>
+    <div class="container-burger-menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 burger-menu">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </div>
+  </div>
+</header>
+
+{% stylesheet %}
+  header {
+    height: clamp(2rem, 20vh, 10rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2% 5%;
+    background: burlywood;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    font-size: 16px;
+    
+  }
+  .header__logo{
+    width: clamp(10%, 5rem, 10%);
+    height: clamp(50%, 20rem, 10%);;
+  }
+  .header__logo img{
+    width: 100%;
+    height: 80%;
+  }
+  nav{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    position: relative;
+  }
+  .header__nav-list{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    width: 100%;
+  }
+  .header__nav-item:hover .item-submenu{
+    display: block;
+  }
+
+  .item-link{
+    position: relative;
+    font-size: 1.3rem; 
+    color: #222222;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke: 0.3px #222222;
+    display: inline-block;
+    transform: scale(1.2);
+  }
+
+  .item-submenu{
+    position: absolute;
+    top: 110%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto;
+    width: 40%;
+    display: none;
+    text-align: left;
+  }
+  
+  .item-link-submenu{
+    margin-bottom: .8rem;
+    font-size: 1.3rem; 
+    color: #222222;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke: 0.3px #222222;
+    display: inline-block;
+    transform: scale(1.2);
+  }
+
+  li a:hover,
+  li a.active,
+  .cart-link.active,
+  .cart-link:hover,
+  .burger-menu:hover{
+        color: #088178;
+        -webkit-text-stroke: #088178;
+  }
+
+  li a.active::after,
+  li a:hover::after,
+  .cart-link.active::after,
+  .cart-link:hover::after{
+    content: '';
+    width: 60%;
+    height: 2px;
+    background-color: #088178;
+    bottom: -4px;
+    left: 20%;
+    position: absolute;
+}
+.cart-link{
+  position: relative;
+}
+.quantity-in-cart{
+  position: absolute;
+  outline: 1.5px solid #088178;
+  color: #088178;
+  height: 22px;
+  width: 22px;
+  border-radius:11px;
+  top: -50%;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  transition: all ease 0.2s;
+}
+.cart-link:hover .quantity-in-cart{
+  color: #222222;
+  outline: 1.5px solid #222222;
+}
+.header__icons{
+  width: 20%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__icons a{
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+.cart-link, 
+.burger-menu{
+  color: #222222;
+  -webkit-text-stroke: #222222;
+  letter-spacing: 0.5px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.container-burger-menu{
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+@media(max-width: 768px){
+  header{
+    width: 100%;
+
+  }
+  .header__icons{
+    display: flex;
+  
+  }
+  .container-burger-menu{
+    display: flex;
+  }
+  .burger-menu{
+    display: flex;
+  }
+
+  nav{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: 100%;
+    right: 0;
+    background: yellow;
+    display: block;
+    box-sizing: border-box;
+    padding: 2rem 0;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.1s ease;
+    background-color: #e3e6f3;
+  }
+
+    nav.show-nav{
+    transform: translateX(0);
+    opacity: 1;
+    } 
+
+  .header__nav-list{
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding-left: 5%;
+    gap: 2.5rem;
+  }
+  .item-submenu{
+    position: absolute;
+    top: 15%;
+    right: 100%;
+    width: auto;
+    white-space: nowrap;
+    text-align: end;
+    padding: 5% 15%;
+    height: fit-content;
+    transform: scale(1);
+    letter-spacing: normal;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.3); 
+  }
+ .header__icons{
+  width: 150px;
+ }
+
+}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu"
+    }
+  ]
+}
+{% endschema %}
