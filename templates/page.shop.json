@@ -9,32 +9,12 @@
  */
 {
   "sections": {
-    "collection-featured-products": {
-      "type": "collection-featured-products",
-      "settings": {}
-    },
-    "collection-new-arrivals": {
-      "type": "collection-new-arrivals",
-      "settings": {}
-    },
-      "collection-men-pants": {
-      "type": "collection-men-pants",
-      "settings": {}
-    },
-      "collection-jacket": {
-      "type": "collection-jacket",
-      "settings": {}
-    },
-    "collection-oversizes": {
-      "type": "collection-oversizes",
+    "shop": {
+      "type": "shop",
       "settings": {}
     }
   },
   "order": [
-    "collection-featured-products",
-    "collection-new-arrivals",
-    "collection-men-pants",
-    "collection-jacket",
-    "collection-oversizes"
+    "shop"
   ]
 }

@@ -1,0 +1,77 @@
+<div class="shop">
+    <h3 class="title-all-prod">All Products</h3>
+
+    <div class="all-products">
+        {% for product in collections.all.products %}
+            <div class="product-card" data-collection="{{ product.tags | join: ' ' | downcase }}">
+        
+                <a href="{{ product.url }}">
+                    <img src="{{ product.featured_image | image_url}}" width="50" height="50" alt="{{ product.title }}" loading="lazy">
+                </a>
+
+                <div class="text-card">
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.description | strip_html | truncate: 120 }}</p>
+                    {% render 'icon-star-group' %}
+                </div>
+                <div class="pay-card">
+                    <p class="price">{{ product.price | money }}</p>
+                    {% form 'product', product %}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+                        <button type="submit" name="add" class="btn-add-cart"   
+                            data-variant-id="{{ product.selected_or_first_available_variant.id }}"  
+                            data-product-title="{{ product.title }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6  icon-add-cart">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                            </svg>
+                        </button>
+                    {% endform %}
+                </div>
+            </div>
+            
+         {% endfor %}
+      
+
+    </div>
+</div>
+{% stylesheet %}
+    .shop{
+        margin-top: 22vh;
+        height: 80vh;
+        width: 100%;
+    }
+
+    .title-all-prod{
+        text-align: center;
+        font-size: 120%;
+        transform: scaleY(1.2);
+        letter-spacing: 2px;
+    }
+    .all-products{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        height: 95%;
+    }
+    .all-products::-webkit-scrollbar{
+        width: 12px;
+
+    }
+
+    .all-products::-webkit-scrollbar-track {
+        background: #e3e6f3;      
+    }
+    .all-products::-webkit-scrollbar-thumb {
+        background:  #222222;       
+        border-radius: 6px;
+        cursor:grab;
+    }
+    .all-products::-webkit-scrollbar-thumb:hover {
+        background: #088178;
+
+    }
+    
+{% endstylesheet %}
